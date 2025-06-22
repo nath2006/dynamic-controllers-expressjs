@@ -1,0 +1,20 @@
+{
+  "name": "dynamic-controller",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^5.0.0",
+    "express-validator": "^7.2.1",
+    "mongodb": "^6.17.0",
+    "mongoose": "^8.9.5",
+    "nodemon": "^3.1.10"
+  },
+  "license": "ISC",
+  "author": "natha2006",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
