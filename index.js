@@ -5,6 +5,7 @@ import Category from './src/models/Category.js';
 import Product from './src/models/Product.js'
 import dynamiCrud from './src/routes/api.js';
 import CategoryMiddleware from './src/middlewares/Category.js';
+import ProductsMiddleware from './src/middlewares/Product.js';
 
 const app = express();
 const env = dotenv.config().parsed
@@ -35,6 +36,7 @@ db.once('open', () => {
 
 //middleware
 app.use(CategoryMiddleware);
+app.use(ProductsMiddleware);
 
 //call dyanamic crud
 app.use('/categories', dynamiCrud(Category))
