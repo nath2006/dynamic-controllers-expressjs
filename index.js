@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import Category from './src/models/Category.js';
+import Product from './src/models/Product.js'
 import dynamiCrud from './src/routes/api.js';
 
 const app = express();
@@ -32,6 +33,8 @@ db.once('open', () => {
 // });
 
 app.use('/categories', dynamiCrud(Category))
+app.use('/products', dynamiCrud(Product))
+
 
 app.listen(env.PORT, () => {
   console.log(`Server is running on port ${env.PORT}`);
