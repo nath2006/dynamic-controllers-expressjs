@@ -1,29 +1,27 @@
 import express from 'express';
-import runValidation from '../libraries/runValidation.js';
-import { checkSchema} from 'express-validator';
+import InputValidation from '../libraries/inputValidation.js';
 
 const app = express();
 
 //store 
 app.post('/categories', 
-        checkSchema({
+      await InputValidation.validate({
           name: {notEmpty: true},
           status: {notEmpty: true}, 
-      }), runValidation)
+      }))
 
 //update
 app.put('/categories/:id', 
-        checkSchema({
-          id: {notEmpty:true, in: 'params'},
+    await InputValidation.validate({
           name: {notEmpty: true},
           status: {notEmpty: true}, 
-      }), runValidation)
+    }))
 
-//delete
-app.delete('/categories/:id', 
-        checkSchema({
-          id: {notEmpty:true, in: 'params'},
-      }), runValidation)
+// //delete
+// app.delete('/categories/:id', 
+//         checkSchema({
+//           id: {notEmpty:true, in: 'params'},
+//       }), runValidation)
 
 
 export default app;
