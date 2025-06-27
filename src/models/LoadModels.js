@@ -1,4 +1,4 @@
-import dynamiCrud from '../routes/DynamicController.js'  ;
+import DynamicController from '../routes/DynamicController.js'  ;
 import express from 'express';
 
 const app = express();
@@ -6,10 +6,9 @@ const app = express();
 //LOAD MODEL AND CREATE ROUTE
 
 import Category from './Category.js';
-app.use('/categories', dynamiCrud(Category));
+app.use('/categories', DynamicController(Category));
 
 import Product from './Product.js';
-app.use('/products', dynamiCrud(Product));
-
+app.use('/products', DynamicController(Product));
 
 export default app;

@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import LoadMiddlewares from './src/middlewares/LoadMiddlewares.js';
 import LoadModels from './src/models/LoadModels.js';
+import System from './src/system/Routes/System.js';
 
 const app = express();
 const env = dotenv.config().parsed
@@ -25,11 +26,15 @@ const db = mongoose.connection;
     console.log(`Database ${env.DB_NAME} connected successfully`);
   });
 
+app.use(System)
+
 //middleware
 app.use(LoadMiddlewares);
 
 //Models & Route
 app.use(LoadModels);
+
+
 
 app.listen(env.PORT, () => {
   console.log(`Server is running on port ${env.PORT}`);
