@@ -41,6 +41,7 @@ class ModuleController {
     fieldsStr = fieldsStr.replace('{', '{\n\t');
     fieldsStr = fieldsStr.replaceAll('},', '},\n\t');
     fieldsStr = fieldsStr.replaceAll(':', ':\xa0');
+    fieldsStr = fieldsStr.replaceAll('"Mongoose.Schema.Types.ObjectId"', 'Mongoose.Schema.Types.ObjectId');
     fieldsStr = fieldsStr.replaceAll('}}', '},\n\t"createdAt": {"type":"Number"},\n\t"updateAt": {"type":"Number"}\n},');
 
     //change filed
