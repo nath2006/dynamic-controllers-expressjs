@@ -24,7 +24,19 @@ const Schema = new Mongoose.Schema({
   timestamps: {currentTime: () => Math.floor(Date.now() / 1000)}
 })
 
+Schema.virtual('category',{
+  ref: 'Category',
+  localField: 'categoryId',
+  foreignField: '_id',
+})
+
+Schema.virtual('specification',{
+  ref: 'Specification',
+  localField: '_id',
+  foreignField: 'productId',
+})
+
 Schema.set('toObject', {virtuals: true});
 Schema.set('toJSON', {virtuals: true});
 
-export default Mongoose.model("product", Schema);
+export default Mongoose.model("Product", Schema);

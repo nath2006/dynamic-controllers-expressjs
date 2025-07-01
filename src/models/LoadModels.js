@@ -11,4 +11,9 @@ app.use('/categories', DynamicController(Category));
 import Product from './Product.js';
 app.use('/products', DynamicController(Product));
 
+
+
+import Specification from './Specification.js';
+app.use('/specifications', DynamicController(Specification));
+
 export default app;

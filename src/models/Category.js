@@ -23,4 +23,4 @@ const Schema = new mongoose.Schema({
 Schema.set('toObject', {virtuals: true});
 Schema.set('toJSON', {virtuals: true});
 
-export default mongoose.model("category", Schema);
+export default mongoose.model("Category", Schema);

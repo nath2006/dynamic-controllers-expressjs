@@ -5,9 +5,34 @@ class DynamicController {
     this._model = model;
   }
 
+  
+  join = async (req,res) => {
+    if(!req.query.join){
+      return
+    }
+
+    //localhost:3000/products?join=category:name|specification:name value
+    const {join} = req.query;
+
+    let output = [];
+
+
+    const joins = join.split('|');
+
+    joins.forEach(join => {
+      const result = join.split(':');
+      // const table = result[0];
+      // const columns = result[1];
+      output.push({path: result[0], select: result[1]});
+      
+    });
+
+    return output;
+  }
+
   index = async (req, res) => {
     try {
-      const data = await this._model.find();
+      const data = await this._model.find().populate(await this.join(req));
 
       return res.json({
         status: true,
