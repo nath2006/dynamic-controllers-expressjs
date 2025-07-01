@@ -8,7 +8,9 @@
     "express-validator": "^7.2.1",
     "mongodb": "^6.17.0",
     "mongoose": "^8.9.5",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
   },
   "license": "ISC",
   "author": "natha2006",
